@@ -8,6 +8,8 @@
 <!-- ECharts单文件引入 -->
 <script src="${pageContext.request.contextPath }/js/echarts.min.js"></script>
 <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath }/js/jquery-1.4.4.min.js"></script>
 </head>
 <body>
 	<table>
@@ -16,6 +18,10 @@
 				<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 				<div id="main" style="width: 600px; height: 400px;"></div> <script
 					type="text/javascript">
+				
+					 //定义两个数组存储图标信息
+				    var sourceArray=new Array();
+				    var countArray=new Array();
 					// 基于准备好的dom，初始化echarts实例
 					var myChart = echarts.init(document.getElementById('main'));
 
@@ -54,17 +60,17 @@
 							}
 						},
 						calculable : true,
-						xAxis : [ {
+						xAxis : {
 							type : 'category',
-							data : [ '电话营销', '网络营销' ]
-						} ],
-						yAxis : [ {
+							data : []
+						},
+						yAxis : {
 							type : 'value'
-						} ],
+						},
 						series : [ {
 							name : '客户数量',
 							type : 'bar',
-							data : [ 3, 5 ],
+							data : [],
 							markPoint : {
 								data : [ {
 									type : 'max',
@@ -79,14 +85,32 @@
 									type : 'average',
 									name : '平均值'
 								} ]
-							}
-						},
+							},
 
-						]
+						} ]
 					};
-
-					// 使用刚指定的配置项和数据显示图表。
-					myChart.setOption(option);
+					$.post("${pageContext.request.contextPath}/CustomerAction_sourceCount", {},
+							  function(data){
+						    $.each( data, function(i, n){
+							    
+						    	 sourceArray[i]=n[0];
+						    	 countArray[i]=n[1];
+							        });
+						    myChart.setOption({
+								xAxis : {
+									data :sourceArray
+								},
+								series : [ {
+									// 根据名字对应到相应的系列
+									name : '客户数量',
+									data :countArray
+								} ]
+							});
+						    
+							  },"json");
+					  myChart.setOption(option);
+					  myChart.hideLoading();
+					
 				</script>
 
 			</td>

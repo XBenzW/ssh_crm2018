@@ -42,8 +42,6 @@
 			method="{1}">
 			<result name="list">/jsp/customer/list.jsp</result>
 			<result name="edit">/jsp/customer/add.jsp</result>
-			<result name="industryCount">/jsp/customer/industryTable.jsp</result>
-			<result name="sourceCount">/jsp/customer/sourceTable.jsp</result>
 			<result name="delete" type="redirectAction">
                <param name="namespace" >/</param>			
                <param name="actionName">CustomerAction_list</param>			

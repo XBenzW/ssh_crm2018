@@ -3,6 +3,7 @@ package cn.xben.web.action;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.struts2.ServletActionContext;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 
@@ -14,6 +15,7 @@ import cn.xben.Until.PageBean;
 import cn.xben.domain.Customer;
 import cn.xben.domain.Staff;
 import cn.xben.service.CustomerService;
+import net.sf.json.JSONArray;
 
 public class CustomerAction extends ActionSupport implements ModelDriven<Customer> {
 
@@ -41,15 +43,23 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	public String industryCount() throws Exception {
 
 		List<Object[]> industryCount = customerService.getIndustryCount();
-		ActionContext.getContext().put("industryCount", industryCount);
-		return "industryCount";
+		// 2 将list转换为 json格式
+		String json = JSONArray.fromObject(industryCount).toString();
+		// 3 将json发送给浏览器
+		ServletActionContext.getResponse().setContentType("application/json;charset=utf-8");
+		ServletActionContext.getResponse().getWriter().write(json);
+		return null;
 	}
 
 	public String sourceCount() throws Exception {
     
 		List<Object[]> sourceCount = customerService.getSourceCount();
-		ActionContext.getContext().put("sourceCount", sourceCount);
-		return "sourceCount";
+		// 2 将list转换为 json格式
+				String json = JSONArray.fromObject(sourceCount).toString();
+				// 3 将json发送给浏览器
+				ServletActionContext.getResponse().setContentType("application/json;charset=utf-8");
+				ServletActionContext.getResponse().getWriter().write(json);
+		return null;
 		
 	}
 
