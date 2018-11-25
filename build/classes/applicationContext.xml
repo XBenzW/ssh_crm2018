@@ -89,6 +89,7 @@
 	
 	<bean name="shoppingAction" class="cn.xben.web.action.ShoppingAction" scope="prototype">
 	  <property name="shoppingService" ref="shoppingService"></property>
+	  <property name="customerService" ref="customerService"></property>
 	</bean>
 	
 	<!-- 注册service-->

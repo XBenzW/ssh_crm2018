@@ -87,8 +87,8 @@
 							<tr>
 							  <td>签字 ：</td>
 								<td>
-								<input type="radio" value="true" name="shop_confirm" >是
-								<input type="radio" value="false" name="shop_confirm" >否
+								<input type="radio" value="true" name="shop_confirm"  <s:property value="#shopping.shop_confirm==true?'checked':''"/> >是
+								<input type="radio" value="false" name="shop_confirm" <s:property value="#shopping.shop_confirm==false?'checked':''"/>>否
 							</tr>
 							<tr>
 								<td rowspan=2>

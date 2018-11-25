@@ -84,8 +84,8 @@
 									
 								<td>性别：</td>
 								<td>
-								<input type="radio" value="男" name="cust_gender" >男
-								<input type="radio" value="女" name="cust_gender"  >女
+								<input type="radio" value="男" name="cust_gender"  <s:property value="#cust.cust_gender==\"男\"?'checked':''"/> >男
+								<input type="radio" value="女" name="cust_gender"  <s:property value="#cust.cust_gender==\"女\"?'checked':''"/> >女
 							</TR>
 							
 							<TR>

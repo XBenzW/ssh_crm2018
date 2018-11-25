@@ -65,8 +65,8 @@
 								<td>性别：</td>
 								<td>
 								
-								<input type="radio" value="男" name="staff_gender"  <s:property value="#staff.staff_gender=='男'?'checked':''"/> >男
-								<input type="radio" value="女" name="staff_gender"  <s:property value="#staff.staff_gender=='女'?'checked':''"/>  >女
+								<input type="radio" value="男" name="staff_gender"  <s:property value="#staff.staff_gender==\"男\"?'checked':''"/> >男
+								<input type="radio" value="女" name="staff_gender"  <s:property value="#staff.staff_gender==\"女\"?'checked':''"/>  >女
 								
 					
 								</td>

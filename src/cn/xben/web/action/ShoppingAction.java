@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import cn.xben.Until.PageBean;
 import cn.xben.domain.Customer;
 import cn.xben.domain.Shopping;
+import cn.xben.service.CustomerService;
 import cn.xben.service.ShoppingService;
 
 public class ShoppingAction extends ActionSupport implements ModelDriven<Shopping> {
@@ -19,11 +20,15 @@ public class ShoppingAction extends ActionSupport implements ModelDriven<Shoppin
 
 	private ShoppingService shoppingService;
 
+	private CustomerService customerService;
+
 	private Integer currentPage;
 
 	private Integer pageSize;
 
 	public String add() throws Exception {
+
+		Customer customer = customerService.getById(shopping.getCustomer().getCust_id());
 
 		shoppingService.saveOrUpdate(shopping);
 		return "toList";
@@ -45,11 +50,11 @@ public class ShoppingAction extends ActionSupport implements ModelDriven<Shoppin
 	public String list() throws Exception {
 		// 1.新建离线查询对象，并且封装参数
 		DetachedCriteria dc = DetachedCriteria.forClass(Shopping.class);
-		
-		 if(shopping.getCustomer()!=null&&shopping.getCustomer().getCust_id()!=null){
-			 dc.add(Restrictions.eq("customer.cust_id", shopping.getCustomer().getCust_id()));
-		 }
-		 
+
+		if (shopping.getCustomer() != null && shopping.getCustomer().getCust_id() != null) {
+			dc.add(Restrictions.eq("customer.cust_id", shopping.getCustomer().getCust_id()));
+		}
+
 		// 2.获去pageBean，发布到request域
 		PageBean pb = shoppingService.getPageBean(dc, currentPage, pageSize);
 		ActionContext.getContext().put("pageBean", pb);
@@ -65,6 +70,10 @@ public class ShoppingAction extends ActionSupport implements ModelDriven<Shoppin
 
 	public void setShoppingService(ShoppingService shoppingService) {
 		this.shoppingService = shoppingService;
+	}
+
+	public void setCustomerService(CustomerService customerService) {
+		this.customerService = customerService;
 	}
 
 	public void setCurrentPage(Integer currentPage) {
