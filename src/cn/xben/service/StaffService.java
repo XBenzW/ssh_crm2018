@@ -17,4 +17,6 @@ public interface StaffService {
 	Staff getById(Long staff_id);
 	//删除工作人员对象
 	void delete(Long staff_id);
+
+	Staff getStaffByName(Staff staff);
 }

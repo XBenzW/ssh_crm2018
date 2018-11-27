@@ -39,4 +39,15 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
+	@Override
+	public void regist(Admin admin) {
+		//1.通过注册名看能不能获取到用户，获取到提示用户名已存在
+		Admin adminByadm_name = adminDao.getAdminByadm_name(admin.getAdm_name());
+		if(adminByadm_name!=null){
+			throw new RuntimeException("用户名已存在");
+		}
+		//2.无异常保存用户
+		adminDao.saveAdmin(admin);
+	}
+
 }

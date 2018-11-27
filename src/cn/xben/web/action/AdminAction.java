@@ -24,6 +24,25 @@ public class AdminAction extends ActionSupport implements ModelDriven<Admin> {
 		//3.重定向到首页
 		return "toHome";
 	}
+	public String logout() throws Exception {
+		
+		ActionContext.getContext().getSession().remove(admin);
+		//3.重定向到登录
+		return "toLogin";
+	}
+	
+	public String regist() throws Exception {
+		//1.调用service方法获取登录成功的Admin对象
+		try {
+			adminService.regist(admin);
+		} catch (Exception e) {
+			
+			ActionContext.getContext().put("error", e.getMessage());
+			return "regist";
+		}
+		//3.重定向到首页
+		return "toLogin";
+	}
 
 	@Override
 	public Admin getModel() {

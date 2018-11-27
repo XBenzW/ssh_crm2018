@@ -8,4 +8,6 @@ import cn.xben.domain.Staff;
 
 public interface StaffDao extends BaseDao<Staff> {
 
+	Staff getStaffByName(String staff_name);
+
 }

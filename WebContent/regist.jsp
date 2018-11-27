@@ -33,7 +33,7 @@ TD {
 </HEAD>
 <BODY>
 	<FORM id=form1 name=form1
-		action="${pageContext.request.contextPath}/AdminAction_login"
+		action="${pageContext.request.contextPath}/AdminAction_regist"
 		method=post>
 
 		<DIV id=UpdatePanel1>
@@ -52,7 +52,7 @@ TD {
 								border=0></TD>
 						</TR>
 						<TR>
-							<TD background=images/login_2.jpg height=300>
+							<TD background=images/regist.jpg height=300>
 								<TABLE height=300 cellPadding=0 width=900 border=0>
 									<TBODY>
 										<TR>
@@ -87,16 +87,16 @@ TD {
 														</TR>
 														<TR>
 															<TD style="HEIGHT: 18px" colspan="2"><font
-																color="red"><s:property value="exception.message" />
+																color="red"><s:property value="#error" />
 															</font></TD>
 															<TD style="HEIGHT: 18px"></TD>
 														</TR>
 														<TR>
-															<TD colspan="2">
-															<INPUT id=btn
+															<TD></TD>
+															<TD><INPUT id=btn
 																style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px"
-																type=image src="images/login_button.gif" name=btn>
-																<img  src="images/regist_2.PNG" style="cursor: pointer;"  onclick="window.location.href='${pageContext.request.contextPath}/regist.jsp'"> 
+																type=image src="images/regist_2.PNG" name=btn>
+																 
 															</TD>
 														</TR>
 													</TBODY>

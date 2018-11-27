@@ -26,6 +26,21 @@ public class StaffServiceImpl implements StaffService {
 		pb.setList(list);
 		return pb;
 	}
+	
+	@Override
+	public Staff getStaffByName(Staff staff) {
+	   //1.根据name查询staf对象，如果对象为空抛异常，密码不对抛异常
+		Staff exitS = staffDao.getStaffByName(staff.getStaff_name());
+		
+		if(exitS==null){
+			throw new RuntimeException("用户不存在");
+		}
+		if(!exitS.getStaff_password().equals(staff.getStaff_password())){
+			throw new RuntimeException("密码错误");
+		}
+	   //2.返回正确对象
+		return exitS;
+	}
 
 	@Override
 	public void saveOrUpdate(Staff staff) {
@@ -52,6 +67,7 @@ public class StaffServiceImpl implements StaffService {
 		
 		staffDao.delete(staff_id);
 	}
+
 
 
 	

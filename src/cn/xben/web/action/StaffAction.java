@@ -21,6 +21,23 @@ public class StaffAction extends ActionSupport implements ModelDriven<Staff> {
 	private Integer currentPage;
 	private Integer pageSize;
 
+	public String login() throws Exception {
+		//1.获取验证成功的staff，并接收
+		Staff s = staffService.getStaffByName(staff);
+		//2.放入session
+		ActionContext.getContext().getSession().put("staff", s);
+		//3.重定向到主页
+		return "toHome";
+	}
+	public String logout() throws Exception {
+		//1.判断当前用户是否存在
+		
+		//2.移除session
+		ActionContext.getContext().getSession().remove("staff");
+		//3.重定向到主页
+		return "toLogin";
+	}
+	
 	public String save() throws Exception {
 		staffService.saveOrUpdate(staff);
 		return "toList";

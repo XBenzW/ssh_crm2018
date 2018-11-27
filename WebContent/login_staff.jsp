@@ -25,7 +25,7 @@ TD {
 
 		if (window.parent != window) {// 如果是在框架中
 			//就让框架页面跳转到登陆页面
-			window.parent.location.href = "${pageContext.request.contextPath}/login.jsp";
+			window.parent.location.href = "${pageContext.request.contextPath}/login_staff.jsp";
 		}
 
 	};
@@ -33,7 +33,7 @@ TD {
 </HEAD>
 <BODY>
 	<FORM id=form1 name=form1
-		action="${pageContext.request.contextPath}/AdminAction_login"
+		action="${pageContext.request.contextPath}/StaffAction_login"
 		method=post>
 
 		<DIV id=UpdatePanel1>
@@ -52,7 +52,7 @@ TD {
 								border=0></TD>
 						</TR>
 						<TR>
-							<TD background=images/login_2.jpg height=300>
+							<TD background=images/login_staff.jpg height=300>
 								<TABLE height=300 cellPadding=0 width=900 border=0>
 									<TBODY>
 										<TR>
@@ -66,15 +66,15 @@ TD {
 														<TR>
 															<TD style="HEIGHT: 28px" width=80>登 录 名：</TD>
 															<TD style="HEIGHT: 28px" width=150><INPUT
-																id=adm_name style="WIDTH: 130px" name=adm_name></TD>
+																id=staff_name style="WIDTH: 130px" name=staff_name></TD>
 															<TD style="HEIGHT: 28px" width=370><SPAN
 																id=RequiredFieldValidator3
 																style="FONT-WEIGHT: bold; VISIBILITY: hidden; COLOR: white">请输入登录名</SPAN></TD>
 														</TR>
 														<TR>
 															<TD style="HEIGHT: 28px">登录密码：</TD>
-															<TD style="HEIGHT: 28px"><INPUT id=adm_password
-																style="WIDTH: 130px" type=password name=adm_password></TD>
+															<TD style="HEIGHT: 28px"><INPUT id=staff_password
+																style="WIDTH: 130px" type=password name=staff_password></TD>
 															<TD style="HEIGHT: 28px"><SPAN
 																id=RequiredFieldValidator4
 																style="FONT-WEIGHT: bold; VISIBILITY: hidden; COLOR: white">请输入密码</SPAN></TD>
@@ -92,11 +92,11 @@ TD {
 															<TD style="HEIGHT: 18px"></TD>
 														</TR>
 														<TR>
-															<TD colspan="2">
-															<INPUT id=btn
+															<TD></TD>
+															<TD><INPUT id=btn
 																style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px"
 																type=image src="images/login_button.gif" name=btn>
-																<img  src="images/regist_2.PNG" style="cursor: pointer;"  onclick="window.location.href='${pageContext.request.contextPath}/regist.jsp'"> 
+																 
 															</TD>
 														</TR>
 													</TBODY>

@@ -122,31 +122,7 @@ A.active {
 					<TD vAlign=top width=180 bgColor=#ffffff>
 						<TABLE cellSpacing=0 cellPadding=3 width=165 align=center border=0>
 							<TBODY>
-								<TR>
-									<TD class=mainMenu onClick="MenuDisplay('table_1');"><SPAN
-										class=span id=table_1Span>＋</SPAN> 工作人员管理</TD>
-								</TR>
-								<TR>
-									<TD>
-										<TABLE id=table_1 style="DISPLAY: none" cellSpacing=0
-											cellPadding=2 width=155 align=center border=0>
-											<TBODY>
-												<TR>
-													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/jsp/staff/add.jsp" 
-														target=main>－ 新增工作人员</A></TD>
-												</TR>
-												<TR> 
-													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/StaffAction_list"
-														target=main>－ 工作人员列表</A></TD>
-												</TR>
-												
-											</TBODY>
-										</TABLE>
-									</TD>
-								</TR>
-								<TR>
-									<TD background=images/new_027.jpg height=1></TD>
-								</TR>
+								
 								<TR>
 									<TD class=mainMenu onClick="MenuDisplay('table_2');"><SPAN
 										class=span id=table_2Span>＋</SPAN> 客户管理</TD>
@@ -224,6 +200,7 @@ A.active {
 								<TR>
 									<TD background=images/new_027.jpg height=1></TD>
 								</TR>
+								
 								
 							</TBODY>
 						</TABLE>

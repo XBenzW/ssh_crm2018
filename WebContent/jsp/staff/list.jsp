@@ -128,7 +128,7 @@
 													<TD><a
 														href="${pageContext.request.contextPath }/StaffAction_toEdit?staff_id=<s:property value="#staff.staff_id" />">修改</a>
 														&nbsp;&nbsp; <a
-														href="${pageContext.request.contextPath }/StaffAction_delete?staff_id=<s:property value="#staff.staff_id" />">删除</a>
+														href="${pageContext.request.contextPath }/StaffAction_delete?staff_id=<s:property value="#staff.staff_id" />" onclick="javascript: return confirm('确认删除吗？');">删除</a>
 													</TD>
 												</TR>
 											</s:iterator>

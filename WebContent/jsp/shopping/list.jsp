@@ -140,7 +140,7 @@
 													<TD><a
 														href="${pageContext.request.contextPath }/ShoppingAction_toEdit?shop_id=<s:property value="#shopping.shop_id" />">修改</a>
 														&nbsp;&nbsp; <a
-														href="${pageContext.request.contextPath }/ShoppingAction_delete?shop_id=<s:property value="#shopping.shop_id" />">删除</a>
+														href="${pageContext.request.contextPath }/ShoppingAction_delete?shop_id=<s:property value="#shopping.shop_id" />" onclick="javascript: return confirm('确认删除吗？');">删除</a>
 													</TD>
 												</TR>
 											</s:iterator>

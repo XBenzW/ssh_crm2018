@@ -8,4 +8,6 @@ public interface AdminService {
 
 	Admin getAdminByPassword(Admin admin);
 
+	void regist(Admin admin);
+
 }

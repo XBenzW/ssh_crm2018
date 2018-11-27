@@ -159,7 +159,7 @@
 													<TD>
 													<a href="${pageContext.request.contextPath }/CustomerAction_toEdit?cust_id=<s:property value="#cust.cust_id" />">修改</a>
 													&nbsp;&nbsp;
-													<a href="${pageContext.request.contextPath }/CustomerAction_delete?cust_id=<s:property value="#cust.cust_id" />">删除</a>
+													<a href="${pageContext.request.contextPath }/CustomerAction_delete?cust_id=<s:property value="#cust.cust_id" />" onclick="javascript: return confirm('确认删除吗？');" >删除</a>
 													</TD>
 													  
 													
